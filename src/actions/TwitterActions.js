@@ -1,4 +1,4 @@
-import API from '../API'
+import API from '../API';
 
 const TwitterActions = {
   search(name) {
@@ -7,7 +7,11 @@ const TwitterActions = {
 
   favorite(tweet) {
     API.favorite(tweet);
+  },
+
+  getFavs() {
+    API.getFavs();
   }
-}
+};
 
 export default TwitterActions;

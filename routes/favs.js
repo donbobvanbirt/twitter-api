@@ -3,6 +3,13 @@ const router = express.Router();
 
 const Tweets = require('../models/tweets');
 
+router.get('/getAll/', (req, res) => {
+  Tweets.getAll((err, data) => {
+    if(err) return res.status(400).send(err);
+    res.send(data);
+  })
+})
+
 router.post('/add/', (req, res) => {
   // let { tweet } = req.params;
   Tweets.create(req.body, err => {

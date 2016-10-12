@@ -1,19 +1,20 @@
-import AppDispatcher from '../AppDispatcher'
+import AppDispatcher from '../AppDispatcher';
 
 const ServerActions = {
   receiveSearch(data) {
     AppDispatcher.dispatch({
-      type:'RECEIVE_SEARCH',
-      payload: { data }
-    })
+      type: 'RECEIVE_SEARCH',
+      payload: { data },
+    });
   },
 
-  receiveInfo(data) {
+  receiveFavs(data) {
+    // console.log('data in ServerActions:', data);
     AppDispatcher.dispatch({
-      type:'RECEIVE_INFO',
-      payload: { data }
-    })
-  }
-}
+      type: 'RECEIVE_FAVS',
+      payload: { data },
+    });
+  },
+};
 
 export default ServerActions;

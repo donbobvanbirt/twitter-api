@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
-import { browserHistory } from 'react-router'
+import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 
-import TwitterStore from '../stores/TwitterStore'
-import TwitterActions from '../actions/TwitterActions'
+import TwitterStore from '../stores/TwitterStore';
+import TwitterActions from '../actions/TwitterActions';
 
 export default class SearchResults extends Component {
   constructor() {
     super();
     this.state = {
-      results: TwitterStore.getSearch()
-    }
+      results: TwitterStore.getSearch(),
+    };
 
     this._onChange = this._onChange.bind(this);
   }
@@ -25,8 +25,8 @@ export default class SearchResults extends Component {
 
   _onChange() {
     this.setState({
-      results: TwitterStore.getSearch()
-    })
+      results: TwitterStore.getSearch(),
+    });
   }
 
   // _getInfo(id) {
@@ -36,34 +36,34 @@ export default class SearchResults extends Component {
 
   _favorite(id, text) {
     console.log('id', 'text', id, text);
-    let tweet = {
-      id: id,
-      text: text
-    }
+    const tweet = {
+      id,
+      text,
+    };
     // console.log('tweet in sr:', tweet);
     TwitterActions.favorite(tweet);
   }
 
   render() {
-    console.log('this state', this.state);
+    // console.log('this state', this.state);
     // let tweetinesses = [];
     let resultsList = '';
-    if(this.state.results) {
-      let { statuses } = this.state.results;
+    if (this.state.results) {
+      const { statuses } = this.state.results;
       resultsList = statuses.map((tweet, i) => {
         let { text, id } = tweet;
         return (
-          <tr id ='cool' key={i}>
+          <tr id="cool" key={i}>
             <td>{text}</td>
-            <td><button onClick={() => this._favorite(id, text)} className="btn btn-default"><span className='glyphicon glyphicon-star-empty'></span></button></td>
+            <td><button onClick={() => this._favorite(id, text)} className="btn btn-default"><span className="glyphicon glyphicon-star-empty" /></button></td>
             {/* <td>{location.city}, {location.state_code}</td>
             <td><button onClick={() => this._getInfo(id)} className="btn btn-default"><span className="glyphicon glyphicon-info-sign"></span></button></td> */}
           </tr>
-        )
-      })
+        );
+      });
     }
     // let statuses = this.state.results.tweetiness || [];
-    console.log("this.state", this.state);
+    console.log('this.state', this.state);
     // console.log("statuses[0]", statuses[0]);
 
     return (
@@ -81,7 +81,7 @@ export default class SearchResults extends Component {
           </tbody>
         </table>
       </div>
-    )
+    );
   }
 
 }
