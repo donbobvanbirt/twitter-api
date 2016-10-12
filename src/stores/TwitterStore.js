@@ -2,9 +2,9 @@ import { EventEmitter } from 'events';
 import AppDispatcher from '../AppDispatcher'
 
 let _searchResults = null;
-let _businessInfo = null;
+// let _businessInfo = null;
 
-class YelpStore extends EventEmitter {
+class TwitterStore extends EventEmitter {
   constructor() {
     super();
 
@@ -15,11 +15,11 @@ class YelpStore extends EventEmitter {
           // console.log('searchResults in store', _searchResults);
           this.emit('CHANGE');
           break;
-        case 'RECEIVE_INFO':
-          _businessInfo = action.payload.data;
-          // console.log('_businessInfo', _businessInfo)
-          this.emit('CHANGE');
-          break;
+        // case 'RECEIVE_INFO':
+        //   _businessInfo = action.payload.data;
+        //   // console.log('_businessInfo', _businessInfo)
+        //   this.emit('CHANGE');
+        //   break;
       }
     })
   }
@@ -36,9 +36,9 @@ class YelpStore extends EventEmitter {
     return _searchResults;
   }
 
-  getInfo() {
-    return _businessInfo;
-  }
+  // getInfo() {
+  //   return _businessInfo;
+  // }
 }
 
-export default new YelpStore;
+export default new TwitterStore;

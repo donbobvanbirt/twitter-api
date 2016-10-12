@@ -2,24 +2,24 @@ import axios, { get, post, delete } from 'axios'
 import ServerActions from './actions/ServerActions'
 
 const API = {
-  search(name, location) {
+  search(search) {
 
-    get(`/search?search=${name}&location=${location}`)
+    get(`api/search?search=${search}`)
     .then(res => {
       let { data } = res;
-      // console.log("data", data);
+      console.log("data", data);
       ServerActions.receiveSearch(data);
     })
     .catch(console.error);
   },
 
-  getInfo(id) {
-    get(`/business/${id}`)
+  favorite(tweet) {
+    post(`/favs/add`, tweet)
     .then(res => {
       let { data } = res;
-      // console.log("data", data);
-      ServerActions.receiveInfo(data);
+      console.log("data", data);
     })
+    .catch(console.error);
   }
 }
 

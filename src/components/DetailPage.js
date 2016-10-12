@@ -2,14 +2,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
-import YelpActions from '../actions/YelpActions'
-import YelpStore from '../stores/YelpStore'
+import TwitterActions from '../actions/TwitterActions'
+import TwitterStore from '../stores/TwitterStore'
 
 export default class DetailPage extends Component {
   constructor() {
     super();
     this.state = {
-      business: YelpStore.getInfo()
+      business: TwitterStore.getInfo()
     }
     this._onChange = this._onChange.bind(this);
   }
@@ -17,18 +17,18 @@ export default class DetailPage extends Component {
   componentWillMount() {
     let { id } = this.props.params;
     // console.log('id in detail page:', id);
-    YelpActions.getInfo(id);
-    YelpStore.startListening(this._onChange);
+    TwitterActions.getInfo(id);
+    TwitterStore.startListening(this._onChange);
     // DetailStore.startListening(this._onChange);
   }
 
   componentWillUnmount(){
-    YelpStore.stopListening(this._onChange);
+    TwitterStore.stopListening(this._onChange);
   }
 
   _onChange(){
     this.setState({
-      business: YelpStore.getInfo()
+      business: TwitterStore.getInfo()
     })
   }
 

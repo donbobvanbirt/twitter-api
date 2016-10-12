@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 
-import YelpActions from '../actions/YelpActions'
+import TwitterActions from '../actions/TwitterActions'
 import SearchResults from './SearchResults'
 
 export default class Search extends Component {
@@ -12,9 +12,9 @@ export default class Search extends Component {
 
   submitSearch(e) {
     e.preventDefault();
-    let { name, location } = this.refs;
+    let { name } = this.refs;
     // console.log('clicked!', name.value, location.value)
-    YelpActions.search(name.value, location.value);
+    TwitterActions.search(name.value);
   }
 
   render() {
@@ -23,12 +23,12 @@ export default class Search extends Component {
         <form onSubmit={this.submitSearch} className="form-inline">
           <div className="form-group">
             <label htmlFor="business-name">Search:</label>
-            <input ref="name" className="form-control" type="text" id="business-name" placeholder="Business name" required />
+            <input ref="name" className="form-control" type="text" id="business-name" placeholder="Search Twitter" required />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label htmlFor="location">Location:</label>
             <input ref="location" className="form-control" type="text" id="location" placeholder="San Francisco" required />
-          </div>
+          </div> */}
           <button className="btn btn-default">Search</button>
         </form>
         <SearchResults/>
