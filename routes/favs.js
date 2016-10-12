@@ -19,4 +19,12 @@ router.post('/add/', (req, res) => {
   })
 })
 
+router.delete('/unfavorite/:id', (req, res) => {
+
+ Tweets.remove(req.params.id, err => {
+   if(err) return res.status(400).send(err);
+   res.send('deleted');
+ })
+})
+
 module.exports = router;

@@ -27,6 +27,10 @@ export default class TwitterFavorites extends Component {
       favorites: TwitterStore.getFavorites()
     })
   }
+  _unfavorite(id) {
+    console.log('id', id);
+    TwitterActions.unfavorite(id);
+  }
 
   render() {
     // console.log('this state', this.state);

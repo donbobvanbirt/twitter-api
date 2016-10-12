@@ -33,6 +33,17 @@ exports.create = function(newItem, cb) {
   })
 }
 
+exports.remove = function(id, cb) {
+   exports.getAll((err, items) =>{
+     if(err) return cb(err);
+     let newTweets = items.filter(tweet => {
+      return tweet.id !== id;
+     })
+     console.log('newTweets', newTweets)
+     exports.add(newTweets, cb);
+   })
+}
+
 // if(!app.working) {
 //   make.app(work)
 // }

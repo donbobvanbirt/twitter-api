@@ -13,6 +13,8 @@ const API = {
     .catch(console.error);
   },
 
+
+
   favorite(tweet) {
     post(`/favs/add`, tweet)
     .then(res => {
@@ -30,7 +32,15 @@ const API = {
       ServerActions.receiveFavs(data);
     })
     .catch(console.error);
+  },
+
+unfavorite(id) {
+  axios.delete(`/favs/unfavorite/${id}`)
+  .then(res => {
+    let {data} = res;
+    console.log('data', data);
+  })
+  .catch(console.error);
   }
 }
-
 export default API;

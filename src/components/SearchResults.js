@@ -51,11 +51,11 @@ export default class SearchResults extends Component {
     if (this.state.results) {
       const { statuses } = this.state.results;
       resultsList = statuses.map((tweet, i) => {
-        let { text, id } = tweet;
+        let { text, id_str } = tweet;
         return (
           <tr id="cool" key={i}>
             <td>{text}</td>
-            <td><button onClick={() => this._favorite(id, text)} className="btn btn-default"><span className="glyphicon glyphicon-star-empty" /></button></td>
+            <td><button onClick={() => this._favorite(id_str, text)} className="btn btn-default"><span className="glyphicon glyphicon-star-empty" /></button></td>
             {/* <td>{location.city}, {location.state_code}</td>
             <td><button onClick={() => this._getInfo(id)} className="btn btn-default"><span className="glyphicon glyphicon-info-sign"></span></button></td> */}
           </tr>
