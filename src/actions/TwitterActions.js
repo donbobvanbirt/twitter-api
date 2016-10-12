@@ -13,9 +13,9 @@ const TwitterActions = {
     API.getFavs();
   },
 
-unfavorite(id) {
-  API.unfavorite(id);
-}
+  unfavorite(id) {
+    API.unfavorite(id);
+  }
 }
 
 export default TwitterActions;

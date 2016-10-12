@@ -15,7 +15,6 @@ export default class SearchResults extends Component {
   }
 
   componentWillMount() {
-    // let { id } = this.props.params;
     TwitterStore.startListening(this._onChange);
   }
 
@@ -29,24 +28,16 @@ export default class SearchResults extends Component {
     });
   }
 
-  // _getInfo(id) {
-  //   // console.log('id', id);
-  //   browserHistory.push(`/detail/${id}`);
-  // }
-
   _favorite(id, text) {
     console.log('id', 'text', id, text);
     const tweet = {
       id,
       text,
     };
-    // console.log('tweet in sr:', tweet);
     TwitterActions.favorite(tweet);
   }
 
   render() {
-    // console.log('this state', this.state);
-    // let tweetinesses = [];
     let resultsList = '';
     if (this.state.results) {
       const { statuses } = this.state.results;
@@ -56,26 +47,14 @@ export default class SearchResults extends Component {
           <tr id="cool" key={i}>
             <td>{text}</td>
             <td><button onClick={() => this._favorite(id_str, text)} className="btn btn-default"><span className="glyphicon glyphicon-star-empty" /></button></td>
-            {/* <td>{location.city}, {location.state_code}</td>
-            <td><button onClick={() => this._getInfo(id)} className="btn btn-default"><span className="glyphicon glyphicon-info-sign"></span></button></td> */}
           </tr>
         );
       });
     }
-    // let statuses = this.state.results.tweetiness || [];
-    console.log('this.state', this.state);
-    // console.log("statuses[0]", statuses[0]);
 
     return (
       <div>
         <table className="table">
-          <thead>
-            {/* <tr>
-              <th>Name</th>
-              <th>Location</th>
-              <th>Info</th>
-            </tr> */}
-          </thead>
           <tbody>
             {resultsList}
           </tbody>

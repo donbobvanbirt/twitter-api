@@ -28,42 +28,28 @@ export default class TwitterFavorites extends Component {
     })
   }
   _unfavorite(id) {
-    console.log('id', id);
     TwitterActions.unfavorite(id);
   }
 
   render() {
-    // console.log('this state', this.state);
-    // let tweetinesses = [];
     let favoriteList = '';
     let { favorites } = this.state;
     if (favorites) {
-      // const { statuses } = this.state.favorites;
+
       favoriteList = favorites.map((tweet, i) => {
         let { text, id } = tweet;
         return (
           <tr id="cool" key={i}>
             <td>{text}</td>
-            <td><button onClick={() => this._unfavorite(id)} className="btn btn-default"><span className="glyphicon glyphicon-star-empty" /></button></td>
-            {/* <td>{location.city}, {location.state_code}</td>
-            <td><button onClick={() => this._getInfo(id)} className="btn btn-default"><span className="glyphicon glyphicon-info-sign"></span></button></td> */}
+            <td><button onClick={() => this._unfavorite(id)} className="btn btn-default"><span className="glyphicon glyphicon-remove" /></button></td>
           </tr>
         );
       });
     }
-    // let statuses = this.state.favorite.tweetiness || [];
-    console.log('this.state', this.state);
 
     return (
       <div>
         <table className="table">
-          <thead>
-            {/* <tr>
-              <th>Name</th>
-              <th>Location</th>
-              <th>Info</th>
-            </tr> */}
-          </thead>
           <tbody>
             {favoriteList}
           </tbody>

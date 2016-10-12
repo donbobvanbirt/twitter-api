@@ -13,7 +13,6 @@ export default class Search extends Component {
   submitSearch(e) {
     e.preventDefault();
     const { name } = this.refs;
-    // console.log('clicked!', name.value, location.value)
     TwitterActions.search(name.value);
   }
 

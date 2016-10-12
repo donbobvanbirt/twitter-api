@@ -9,7 +9,6 @@ const ServerActions = {
   },
 
   receiveFavs(data) {
-    // console.log('data in ServerActions:', data);
     AppDispatcher.dispatch({
       type: 'RECEIVE_FAVS',
       payload: { data },

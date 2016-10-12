@@ -23,7 +23,6 @@ exports.add = function(newData, cb) {
 }
 
 exports.create = function(newItem, cb) {
-  // newItem.id = uuid();
   exports.getAll((err, items) => {
     if(err) return cb(err);
 
@@ -43,7 +42,3 @@ exports.remove = function(id, cb) {
      exports.add(newTweets, cb);
    })
 }
-
-// if(!app.working) {
-//   make.app(work)
-// }
