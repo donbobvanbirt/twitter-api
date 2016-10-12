@@ -8,7 +8,7 @@
     "serve": "webpack-dev-server -d --progress"
   },
   "keywords": [],
-  "author": "Cade Nichols <cade@codinghouse.co>",
+  "author": "Donovan & Dustin",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.14.0",
@@ -20,6 +20,7 @@
     "bootstrap-sass": "^3.3.7",
     "classnames": "^2.2.5",
     "css-loader": "^0.25.0",
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
@@ -33,6 +34,7 @@
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
+    "twitter": "^1.4.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.4",
